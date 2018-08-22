@@ -1,0 +1,10 @@
+C:\Users\olivier.menuel\source\repos\CSharpTagApi\CSharpTagApi\bin\Debug\CSharpTagApi.exe.config
+C:\Users\olivier.menuel\source\repos\CSharpTagApi\CSharpTagApi\bin\Debug\CSharpTagApi.exe
+C:\Users\olivier.menuel\source\repos\CSharpTagApi\CSharpTagApi\bin\Debug\CSharpTagApi.pdb
+C:\Users\olivier.menuel\source\repos\CSharpTagApi\CSharpTagApi\obj\Debug\CSharpTagApi.csprojAssemblyReference.cache
+C:\Users\olivier.menuel\source\repos\CSharpTagApi\CSharpTagApi\obj\Debug\CSharpTagApi.csproj.CoreCompileInputs.cache
+C:\Users\olivier.menuel\source\repos\CSharpTagApi\CSharpTagApi\obj\Debug\CSharpTagApi.exe
+C:\Users\olivier.menuel\source\repos\CSharpTagApi\CSharpTagApi\obj\Debug\CSharpTagApi.pdb
+C:\Users\olivier.menuel\source\repos\CSharpTagApi\CSharpTagApi\bin\Debug\Newtonsoft.Json.dll
+C:\Users\olivier.menuel\source\repos\CSharpTagApi\CSharpTagApi\bin\Debug\Newtonsoft.Json.xml
+C:\Users\olivier.menuel\source\repos\CSharpTagApi\CSharpTagApi\obj\Debug\CSharpTagApi.csproj.CopyComplete
