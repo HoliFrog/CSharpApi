@@ -27,25 +27,59 @@ namespace CSharpTagApi
             StreamReader reader = new StreamReader(dataStream);
             // Read the content.
             string responseFromServer = reader.ReadToEnd();
-            List<LigneTransport> dataLignes = JsonConvert.DeserializeObject<List<LigneTransport>>(responseFromServer);
-            Dictionary<string, List<String>> ListWithOutDuplicates = new Dictionary<string, List<String>>();
-            foreach (var item in dataLignes)
+            List<TagCloserToYou> linesAround = JsonConvert.DeserializeObject<List<TagCloserToYou>>(responseFromServer);                       
+            Dictionary<string, List<string>> ListWithOutDuplicatesNames = new Dictionary<string, List<string>>();
+
+            foreach (TagCloserToYou item in linesAround)
             {
-                if (!ListWithOutDuplicates.ContainsKey(item.id))
+                if (!ListWithOutDuplicatesNames.ContainsKey(item.name))
                 {
-                    //ListWithOutDuplicates.Add(item.id, item);
+                    ListWithOutDuplicatesNames.Add(item.name, item.lines);
+                }
+                else
+                {
+                    ListWithOutDuplicatesNames[item.name].Concat(item.lines);
                 }
             }
-            
-            foreach (var item in dataLignes)
+            foreach (TagCloserToYou item in linesAround)
             {
-                Console.WriteLine(item.longName);
+                if (!ListWithOutDuplicatesNames.ContainsKey(item.name))
+                {
+                    ListWithOutDuplicatesNames.Add(item.name, item.lines);
+                }
+                else
+                {
+                    foreach (var line in item.lines)
+                    {
+                        if (!ListWithOutDuplicatesNames[item.name].Contains(line))
+                        {
+                            ListWithOutDuplicatesNames[item.name].Add(line);
+                        }
+                    }
+                    
+                }
             }
-            List<TagCloserToYou> data = JsonConvert.DeserializeObject<List<TagCloserToYou>>(responseFromServer);
-            foreach (TagCloserToYou item in data)
+
+            List<string> vs = new List<string>();
+            vs.Add("lo");
+            vs.Add("li");
+            List<string> vs2 = new List<string>();
+            vs2.Add("lo");
+            vs2.Add("li");
+
+            vs.Concat(vs2);
+            foreach (var item in vs)
             {
-                string s = "name :" + item.name + "\n \nLignes disponibles : \n";
-                foreach (string line in item.lines)
+                Console.WriteLine(item+"\n");
+            }
+            
+                
+           
+
+            foreach (var item in ListWithOutDuplicatesNames)
+            {
+                string s = "name :" + item.Key + "\n \nLignes disponibles : \n";
+                foreach (string line in item.Value)
                 {
                     s += line+ "\n";
                 }
@@ -76,7 +110,7 @@ namespace CSharpTagApi
             {
                 string s = String.Format("name :{0} \n \nMode de transport :{1} ", item.longName, item.longName);
 
-                Console.WriteLine(s);
+                Console.WriteLine();
             }
 
             // Cleanup the streams and the response.
